@@ -18,6 +18,7 @@ import { CardCat } from "./components/CardCat";
 import { CatDetails } from './components/CatDetails';
 import { Logout } from "./components/Logout";
 import { Catalog } from './components/Catalog';
+import { Edit } from './components/Edit';
 
 function App() {
   const [cat, setCat] = useState([])
@@ -74,6 +75,14 @@ const onLogout = async () => {
   setAuth({});
 };
 
+const onGameEditSubmit = async (values) => {
+  const result = await catService.edit(values._id, values);
+
+  setCat(state => state.map(x => x._id === values._id ? result : x))
+
+  navigate(`/catalog/${values._id}`);
+}
+
   const contextValues = {
     onLoginSubmit,
     onRegisterSubmit,
@@ -96,6 +105,7 @@ const onLogout = async () => {
         <Route path='/add' element={<Add onCreateGameSubmit={onCreateGameSubmit} />} />
         <Route path='/catalog' element={<Catalog cat={cat} />} />
         <Route path='/catalog/:catId' element={<CatDetails />} />
+        <Route path='/catalog/:catId/edit' element={<Edit onGameEditSubmit={onGameEditSubmit} />} />
       </Routes>
       <Footer />
     </div>
