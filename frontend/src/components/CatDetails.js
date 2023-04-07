@@ -36,6 +36,8 @@ export const CatDetails = ({ stateManager }) => {
       <Card.Img variant='top' src={cat.imageUrl} />
       <Card.Body>
         <Card.Title>{cat.name}</Card.Title>
+        <Card.Title>{cat.age}</Card.Title>
+        <Card.Text>{cat.breed}</Card.Text>
         <Card.Text>{cat.description}</Card.Text>
         {isOwner && (
           <>

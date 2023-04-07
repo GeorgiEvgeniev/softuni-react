@@ -14,7 +14,6 @@ import { Footer } from "./components/Footer";
 import { Login } from "./components/Login";
 import { Register } from "./components/Register";
 import { Add } from "./components/Add";
-import { CardCat } from "./components/CardCat";
 import { CatDetails } from "./components/CatDetails";
 import { Logout } from "./components/Logout";
 import { Catalog } from "./components/Catalog";

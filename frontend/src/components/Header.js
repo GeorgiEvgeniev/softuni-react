@@ -2,13 +2,14 @@ import {Container, Nav, Navbar} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { useContext } from 'react';
+import catlogo from '../catlogo.png'
 
 export const Header = () => {
   const {isAuthenticated} = useContext(AuthContext);
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand as={Link} to="/"><img src="./catlogo.png" alt="Cat Logo" /></Navbar.Brand>
+        <Navbar.Brand as={Link} to="/"><img src={catlogo} alt="Cat Logo" id='cat-logo' /></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">

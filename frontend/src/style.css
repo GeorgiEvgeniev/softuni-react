@@ -98,3 +98,12 @@ button[type="submit"]:hover {
   flex-direction: row;
   flex-wrap: wrap;
 }
+
+card {
+  padding-right: 20px;
+}
+
+#cat-logo {
+  width: 60px;
+  height: 50px;
+}
