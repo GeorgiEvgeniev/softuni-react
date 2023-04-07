@@ -7,7 +7,7 @@ export const gameServiceFactory = (token) => {
 
     const getAll = async () => {
         const result = await request.get(baseUrl);
-        const games = Object.values(result);
+        const games = Object.values(result).filter((r) => !['CoverFire', 'MineCraft', 'Zombie Lang'].includes(r.title));
     
         return games;
     };
@@ -34,8 +34,9 @@ export const gameServiceFactory = (token) => {
 
     const edit = (catId, data) => request.put(`${baseUrl}/${catId}`, data);
 
-    const deleteGame = (catId) => request.delete(`${baseUrl}/${catId}`);
-
+    const deleteGame = (catId) => {
+        request.delete(`${baseUrl}/${catId}`);
+    }
 
     return {
         getAll,

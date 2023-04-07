@@ -92,3 +92,9 @@ button[type="submit"]:hover {
   color: #f00;
   margin-bottom: 10px;
 }
+
+.catalog-page {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
