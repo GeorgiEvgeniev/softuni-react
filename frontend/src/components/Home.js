@@ -8,7 +8,7 @@ export const Home = ({ cat }) => {
         <p>Find everything you need to know about cats here!</p>
       </div>
       <div className='content'>
-        <h1 style={{marginLeft: "10px"}}>Latest cats</h1>
+        <h1 style={{textAlign: "center"}}>Latest cats</h1>
         <section className='catalog-page'>
           {cat
             .sort((a, b) => b._createdOn - a._createdOn)

@@ -10,13 +10,13 @@ export const Catalog = ({ cat }) => {
   // }, [catService])
   return (
     <>
-      <h1 style={{marginLeft: "10px"}}>All cats</h1>
+      <h1 style={{textAlign: "center"}}>All cats</h1>
       <section className='catalog-page'>
         {cat.map((x) => (
           <CardCat key={x._id} {...x} />
         ))}
 
-        {cat.length === 0 && <h3 className='no-articles'>No cats yet</h3>}
+        {cat.length === 0 && <h3 className='no-articles' style={{marginLeft: "10px"}}>No cats yet</h3>}
       </section>
     </>
   );
