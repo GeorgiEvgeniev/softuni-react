@@ -1,4 +1,4 @@
-# Softuni-reactJS February 2023
+# Softuni-reactJS February 2023 
 
 # Introduction
 My application is about cats. The main attraction is the catalog page which allows different users to add a cat to the catalog. Users can browse the cats, click for more details, edit and delete their own added cat. Adding a cat requries the user to fill in some information about the cat such as name, age, breed and description. The home page displays the last 5 cats that were added to the catalog as well as some general information about cats. Register or login is required for users to be able to add cats.
