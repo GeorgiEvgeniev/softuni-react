@@ -3,13 +3,13 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 
 import { useService } from "../hooks/userService";
-import { gameServiceFactory } from "../services/catService";
+import { catServiceFactory } from "../services/catService";
 
 export const Edit = ({ 
-  onGameEditSubmit 
+  onCatEditSubmit 
 }) => {
   const { catId } = useParams();
-  const catService = useService(gameServiceFactory);
+  const catService = useService(catServiceFactory);
   const { values, changeHandler, onSubmit, changeValues } = useForm({
     name: "",
     breed: "",
@@ -17,7 +17,7 @@ export const Edit = ({
     imageUrl: "",
     description: "",
     _id: "",
-  }, onGameEditSubmit);
+  }, onCatEditSubmit);
 
   useEffect(() => {
     catService.getOne(catId)

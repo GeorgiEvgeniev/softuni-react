@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import { AuthContext } from "./context/AuthContext";
 import { authServiceFactory } from "./services/authService";
-import { gameServiceFactory } from "./services/catService";
+import { catServiceFactory } from "./services/catService";
 
 import { Header } from "./components/Header";
 import { Home } from "./components/Home";
@@ -23,7 +23,7 @@ function App() {
   const [cat, setCat] = useState([]);
   const navigate = useNavigate();
   const [auth, setAuth] = useState({});
-  const catService = gameServiceFactory(auth.accessToken);
+  const catService = catServiceFactory(auth.accessToken);
   const authService = authServiceFactory(auth.accessToken);
 
   const stateManager = {
@@ -38,7 +38,7 @@ function App() {
     stateManager.updateCats();
   }, []);
 
-  const onCreateGameSubmit = async (data) => {
+  const onCreateCatSubmit = async (data) => {
     const newCat = await catService.create(data);
 
     setCat((state) => [...state, newCat]);
@@ -79,7 +79,7 @@ function App() {
     setAuth({});
   };
 
-  const onGameEditSubmit = async (values) => {
+  const onCatEditSubmit = async (values) => {
     const result = await catService.edit(values._id, values);
 
     setCat((state) => state.map((x) => (x._id === values._id ? result : x)));
@@ -106,10 +106,10 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/logout' element={<Logout />} />
-          <Route path='/add' element={<Add onCreateGameSubmit={onCreateGameSubmit} />} />
+          <Route path='/add' element={<Add onCreateCatSubmit={onCreateCatSubmit} />} />
           <Route path='/catalog' element={<Catalog cat={cat} />} />
           <Route path='/catalog/:catId' element={<CatDetails stateManager={stateManager} />} />
-          <Route path='/catalog/:catId/edit' element={<Edit onGameEditSubmit={onGameEditSubmit} />} />
+          <Route path='/catalog/:catId/edit' element={<Edit onCatEditSubmit={onCatEditSubmit} />} />
         </Routes>
         <Footer />
       </div>

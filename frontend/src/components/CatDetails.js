@@ -4,7 +4,7 @@ import Card from "react-bootstrap/Card";
 import { useEffect, useState, useContext } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 
-import { gameServiceFactory } from "../services/catService";
+import { catServiceFactory } from "../services/catService";
 import { useService } from "../hooks/userService";
 import { AuthContext } from "../context/AuthContext";
 
@@ -12,7 +12,7 @@ export const CatDetails = ({ stateManager }) => {
   const { userId } = useContext(AuthContext);
   const { catId } = useParams();
   const [cat, setCat] = useState({});
-  const catService = useService(gameServiceFactory);
+  const catService = useService(catServiceFactory);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -41,7 +41,7 @@ export const CatDetails = ({ stateManager }) => {
         <Card.Text>{cat.description}</Card.Text>
         {isOwner && (
           <>
-            <Button as={Link} to={`/catalog/${cat._id}/edit`} variant='primary'>
+            <Button as={Link} to={`/catalog/${cat._id}/edit`} variant='primary' style={{marginRight: "10px"}}>
               Edit
             </Button>
             <Button

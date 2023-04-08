@@ -1,7 +1,7 @@
 import { useForm } from "../hooks/useForm";
 
 export const Add = ({ 
-  onCreateGameSubmit 
+  onCreateCatSubmit 
 }) => {
   const { values, changeHandler, onSubmit } = useForm({
     name: "",
@@ -9,7 +9,7 @@ export const Add = ({
     age: "",
     imageUrl: "",
     description: "",
-  }, onCreateGameSubmit);
+  }, onCreateCatSubmit);
   
   return (
     <form className='add-pet-form' method="POST" onSubmit={onSubmit}>
