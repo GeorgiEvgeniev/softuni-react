@@ -24,11 +24,15 @@ export const CatDetails = ({ stateManager }) => {
   const isOwner = cat._ownerId === userId;
 
   const onDeleteClick = async (_id) => {
+    console.log(1)
     await catService.delete(_id);
-
-    stateManager.updateCats();
+    console.log(2)
+   await stateManager.updateCats();
+   console.log(3)
 
     navigate("/catalog");
+   console.log(4)
+
   };
 
   return (
@@ -46,8 +50,8 @@ export const CatDetails = ({ stateManager }) => {
             </Button>
             <Button
               variant='primary'
-              onClick={() => {
-                onDeleteClick(cat._id);
+              onClick={async () => {
+                await onDeleteClick(cat._id);
               }}
             >
               Delete
